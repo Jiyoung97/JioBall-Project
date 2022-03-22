@@ -42,7 +42,7 @@ public class ManagerLoginController extends HttpServlet {
 			System.out.println("Allow Access [LOGIN]");
 			
 			HttpSession session = req.getSession();
-			session.setAttribute("managerno", managerNo);
+			session.setAttribute("managerNo", managerNo);
 			
 			req.getRequestDispatcher("/WEB-INF/views/manager/home.jsp").forward(req, resp);
 			

@@ -24,11 +24,11 @@
 				<form action="/login/login" method="post">
 					<div class="form-group">
 						<label>이메일 *</label> <input type="text"
-							class="form-control p_input" name="userId" required>
+							class="form-control p_input" name="userid" required>
 					</div>
 					<div class="form-group">
 						<label>패스워드 *</label> <input type="password"
-							class="form-control p_input" name="userPw" required>
+							class="form-control p_input" name="userpw" required>
 					</div>
 					<br>
 					<button type="submit" class="btn btn-primary btn-block enter-btn">로그인</button>
@@ -45,7 +45,7 @@
 					</div>
 				</form>
 				<form id="form-kakao-login" method="post" action="/login/kakaologin">
-		    			<input type="hidden" name="userKakaoId"/>
+		    			<input type="hidden" name="userkakaoid"/>
 		    	</form>
 			</div>
 		</div>
@@ -77,10 +77,10 @@ function openPopPw() {
 </script>
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery-2.2.4.js"></script>
-	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script src="http://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script type="text/javascript">
 	
-       Kakao.init('a774b2d598acd9f4c5943080d82c7ca8');
+       Kakao.init('68fe7b2d742137fbef1168b7e6d0b12b');
        
 
        $("#kakaologin").on("click", function(){

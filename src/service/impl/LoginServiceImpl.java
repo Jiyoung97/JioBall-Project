@@ -85,7 +85,12 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public int kakaoLogin(UserInfo userParam) {
 		
-		return 0;
+		Connection conn = JDBCTemplate.getConnection();
+		
+		LoginDao loginDao = new LoginDaoImpl();
+		
+		return loginDao.selectKakaoUser(conn, userParam);
+		
 	}
 
 	@Override

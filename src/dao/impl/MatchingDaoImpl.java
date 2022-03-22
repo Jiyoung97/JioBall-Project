@@ -10,7 +10,6 @@ import java.util.List;
 import common.JDBCTemplate;
 import dao.face.MatchingDao;
 import dto.Matching;
-import dto.UserTeam;
 
 public class MatchingDaoImpl implements MatchingDao{
 
@@ -206,47 +205,6 @@ public class MatchingDaoImpl implements MatchingDao{
 		
 		//--- 최종 조회 결과 반환 ---
 		return allMatching;
-	}
-
-	@Override
-	public UserTeam selectUserTeam(Connection conn, UserTeam userTeam) {
-		
-		//--- SQL 작성 ---
-		String sql = "";
-		sql += "SELECT * FROM V_USERTEAM";
-		sql += " WHERE 팀번호 = ?";
-		
-		
-		//--- 조회 결과를 저장할 객체 ---
-		UserTeam user = new UserTeam();
-		
-		try {
-			//--- SQL 수행 객체 생성 ---
-			ps = conn.prepareStatement(sql);
-			
-			ps.setInt(1, userTeam.getTeamNo());
-			
-			//--- SQL 수행 및 결과 저장 ---
-			rs = ps.executeQuery();
-			
-			//--- 조회 결과 처리 ---
-			while( rs.next() ) {
-				
-				user.setUserName( rs.getString("회원이름") );
-				user.setUserId( rs.getString("회원아이디") );
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			//--- 자원 해제 ---
-			JDBCTemplate.close( rs );
-			JDBCTemplate.close( ps );
-		}
-		
-		//--- 최종 조회 결과 반환 ---
-		return user;
-		
 	}
 
 	@Override

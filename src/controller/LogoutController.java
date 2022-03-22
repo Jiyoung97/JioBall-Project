@@ -8,19 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/user/logout")
+@WebServlet("/login/logout")
 public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		System.out.println("/user/logout [GET]");
+		System.out.println("/login/logout [GET]");
 		
 		HttpSession session = req.getSession();
 		
-		if(session.getAttribute("userno") != null) {
+		if(session.getAttribute("teamno") != null) {
 
-			System.out.println("UserInfo [userNo=" + session.getAttribute("userno")+ "]");
+			System.out.println("UserInfo [teamNo=" + session.getAttribute("teamno") + "]");
 			session.invalidate();
 			System.out.println("Disconnect [LOGOUT]");
 			

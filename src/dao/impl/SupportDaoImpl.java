@@ -224,7 +224,7 @@ public class SupportDaoImpl implements SupportDao{
 		
 		String sql = "";
 		sql += "INSERT INTO support(support_no, support_title, support_content, support_type, support_date, support_state,";
-		sql += " support_write)";
+		sql += " support_writer)";
 		sql += " VALUES(?, ?, ?, ?, sysdate,0,?)";
 		
 		int res = 0;

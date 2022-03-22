@@ -217,7 +217,7 @@ $(document).ready(function() {
 					Date now = cal.getTime(); //현재날짜
 					%>
 					<% Date playDate = recentMatchingList.get(i).getPlayDate(); %>
-					<%	if( now.after(playDate) && recentMatchingList.get(i).getMatchingProgressNo() == 1) {%>
+					<%	if( !(now.after(playDate) && recentMatchingList.get(i).getMatchingProgressNo() == 1)) {%>
 					<tr>
 						<td><%=recentMatchingList.get(i).getPlayDate() %></td>
 						<td><%=recentMatchingList.get(i).getGroundName() %></td>

@@ -9,6 +9,8 @@ public interface LoginDao {
 	
 	public int selectUser(Connection conn, UserInfo userParam);
 
+	public int selectKakaoUser(Connection conn, UserInfo userParam);
+	
 	public String selectUserId(Connection conn, UserInfo userParam);
 	
 	public UserInfo selectUserPw(Connection conn, UserInfo userParam);

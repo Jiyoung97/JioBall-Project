@@ -21132,9 +21132,129 @@ div.tagsinput {
   -webkit-flex-grow: 1;
   flex-grow: 1; }
 
-.input-userlist-search {width:280px; margin-right:5px; float:left;}
+/*# sourceMappingURL=maps/style.css.map */
 
-.btn-userlist-search {width:65px; height:calc(2.25rem + 2px);}
+/* --------------------------------------- */
 
-.form-userlist-top {margin-bottom:28px;}
+/* 2022-03-18 추가 */
 
+/* input autofill (필드 색상 변경) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {transition:background-color 600000s 0s, color 600000s 0s;}
+
+/* input[type=number] 증감 버튼 X Chrome, safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none !important; margin:0;}
+
+/* input[type=number] 증감 버튼 X Firefox */
+input[type=number] {-moz-appearance:textfield !important;}
+
+/* Ground Insert CSS → manage/insert.jsp */
+.form-control:readonly {background-color:#2A3038;}
+
+.file-upload-default {display:none;}
+
+.form-control {color:#4b5564;}
+.form-input {width:350px;}
+
+.input-location-search {width:280px; margin-right:5px; float:left;}
+.input-location-search[readonly] {background-color:#2A3038;}
+
+.btn-location-search {width:65px; height:calc(2.25rem + 2px);}
+.btn-location-search::after {content:""; clear:both;}
+
+.ground-size-width {width:172.5px; margin-right:5px; float:left;}
+.ground-size-height {width:172.5px;}
+.ground-size-height::after {content:""; clear:both;}
+
+.form-radio-label {margin:0px 23px 0px 0px; line-height:normal; vertical-align:bottom;}
+.form-radio-input {position:relative; margin:0px;}
+
+.form-check-label {margin-right:10px; line-height:normal; vertical-align:bottom;}
+.form-check-input {position:relative; margin:0px;}
+
+.form-select {width:350px;}
+
+.textarea-input {width:350px;}
+
+.input-fileupload {width:280px; margin-right:5px; float:left;}
+.input-fileupload[readonly] {background-color:#2A3038;}
+
+.btn-fileupload {width:65px; height:calc(2.25rem + 2px);}
+.btn-fileupload::after {content:""; clear:both;}
+
+.btn-ground-insert-submit {margin-bottom:5px;}
+.btn-ground-insert-submit,
+
+.btn-cancle {width:456px; height:calc(2.25rem + 2px); display:block;}
+.btn-cancle {margin-bottom:7px;}
+
+/* Ground List Board → manage/groundListBoard.jsp */
+.input-ground-search {width:280px; margin-right:5px; float:left;}
+
+.btn-ground-search {width:65px; height:calc(2.25rem + 2px);}
+
+.btn-ground-insert {width:95px; height:calc(2.25rem + 2px); float:right;}
+.btn-ground-insert::after {content:""; clear:both;}
+
+.form-ground-top {margin-bottom:28px;}
+
+.btn-ground-update {padding:0px; margin:0px; background:none !important; border:none !important;}
+.btn-ground-update:active,
+.btn-ground-update:focus {box-shadow:none !important; cursor:hand;}
+
+.btn-ground-delete {padding:0px; margin:0px; background:none !important; border:none !important;}
+.btn-ground-delete:active, .btn-ground-delete:focus {box-shadow:none !important; cursor:hand;}
+
+
+/* Paging CSS → manage&user/paging.jsp */
+.pagination a {width:35px; height:35px; display:inline-block; padding:5px; border:1px solid rgba(199, 204, 207, 0.7);}
+a, a:hover {color: #e4eaec; text-decoration:none;}
+
+.template-demo {text-align:center;}
+
+/* Ground Update CSS → manage/update.jsp */
+.btn-ground-update-submit {width:456px; height:calc(2.25rem + 2px); display:block; margin-bottom:5px;}
+
+/* Ground List CSS → groundList.jsp */
+.form {overflow:hidden;}
+.form-wrap {float:right; padding-right:3.5rem;}
+.form-select-playLocal {float:left; width:100px; margin-right:5px;}
+.form-input-search {float:left; margin-right:5px;}
+
+.from-wrap::after {content:""; clear:both;}
+
+.ground-list-wrap {display:flex; flex:1 1 auto; flex-wrap:wrap; justify-content:flex-start; padding:1.75rem 0px;}
+.ground-list-wrap .stretch-card {padding: 0rem 3.5rem;}
+.ground-list-img {width:250px; height:250px; border-radius:25px;}
+.ground-list-content {width:250px; padding-top:20px;}
+.ground-list-content a {display:block;}
+
+/* Ground View CSS → view.jsp */
+.ground-img {width:100%;; height:450px; border-radius:0.25rem;}
+.ground-location-api {width:100%; height:450px; border-radius:0.25rem; overflow: visible;}
+
+.ground-name > p:first-child,
+.ground-location > p:first-child,
+.ground-time > p:first-child {margin-bottom:5px;}
+
+.ground-size,
+.ground-shower,
+.ground-parking,
+.ground-shoes,
+.ground-bib {text-align:center;}
+
+.ground-facility-information .col-md-2 .card {border:1px solid rgba(999, 999, 999, 1); border-radius:0.25rem;}
+
+/* Ground Update Complete CSS → insert&updateComplete.jsp */
+.update-complete > .error-page {background-color: #191c24;}
+.update-complete .btn-cancle {margin:0px auto;}
+
+/* Privacy Statment CSS → privacyStatment.jsp */
+.privacy-statment,
+.terms-of-use {height:100vh!important; line-height:1.3rem;}
+
+.privacy-statment[readonly],
+.terms-of-use[readonly] {background-color:#2A3038;}

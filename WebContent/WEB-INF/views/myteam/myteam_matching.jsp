@@ -57,7 +57,7 @@ function openPopReview(inviteNo, joinNo) {
 					Date now = cal.getTime(); //현재날짜
 					%>
 					<% Date playDate = matchingList.get(i).getPlayDate(); %>
-					<%	if( now.after(playDate) && matchingList.get(i).getMatchingProgressNo() == 1) {%>
+					<%	if( !(now.after(playDate) && matchingList.get(i).getMatchingProgressNo() == 1)) {%>
 				<tr>
 					<td><%=matchingList.get(i).getPlayDate() %></td>
 					<td><%=matchingList.get(i).getGroundName() %></td>

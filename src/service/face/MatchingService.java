@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import dto.Matching;
-import dto.UserTeam;
 
 public interface MatchingService {
 
@@ -49,14 +48,6 @@ public interface MatchingService {
 	 */
 	public Matching getInviteNo(HttpServletRequest req);
 	
-
-	/**
-	 * 회원 이름, 통신사, 휴대폰번호 조회
-	 * 
-	 * @param otherTeam - 조회할 팀번호
-	 * @return UserInfo - 조회된 회원정보
-	 */
-	public UserTeam getUserInfo(UserTeam userTeam);
 
 	/**
 	 * 모집번호로 매칭내역 정보 조회

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <head>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="/resources/se2/js/service/HuskyEZCreator.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -43,7 +43,7 @@ function submitContents( elClickedObj ){
 			<div class="card-body">
 			
 <div style="width: 800px;">
-<form action="/manage/notice/write" method="post">
+<form action="/manager/notice/write" method="post">
 <table class="table text-secondary">
 	
 	<tr>

@@ -217,7 +217,7 @@ public class SupportServiceImpl implements SupportService{
 				}
 				
 				//작성자
-//				support.setSupportWriter(( (String) req.getSession().getAttribute("teamid") ));
+				support.setSupportWriter(( (String) req.getSession().getAttribute("userName") ));
 				
 				if( supportDao.insertSupportWrite(conn, support) > 0 ) {
 					JDBCTemplate.commit(conn);

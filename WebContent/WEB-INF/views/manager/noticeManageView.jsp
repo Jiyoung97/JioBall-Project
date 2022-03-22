@@ -37,7 +37,7 @@
 
 <br>
 <div align="center">
-<button style="width: 80px; height: 50px" class="btn btn-sm btn-primary" onclick="location.href='/manage/notice'">목록</button>
+<button style="width: 80px; height: 50px" class="btn btn-sm btn-primary" onclick="location.href='/manager/notice'">목록</button>
 </div>
 
 </div>

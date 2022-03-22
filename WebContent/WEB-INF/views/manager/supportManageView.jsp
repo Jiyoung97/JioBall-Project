@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 <% Support view = (Support)request.getAttribute("supportView");%>
 <% SupportFile file = (SupportFile)request.getAttribute("supportFile");%>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="/resources/se2/js/service/HuskyEZCreator.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -87,7 +87,7 @@ function submitContents( elClickedObj ){
 <br>
 
 <div style=" border-top: 2px solid white; border-bottom: 1px solid; background-color: white;">
-<form action="/manage/support/update" method="post">
+<form action="/manager/support/update" method="post">
 	<input type="hidden" name="supportno" value="<%=view.getSupportNo() %>" />
 	<textarea id="answer" name="answer" style="width: 800px;"><%if(view.getSupportAnswer()!=null){ %><%=view.getSupportAnswer() %><%}else{ %><%} %>
 	</textarea>

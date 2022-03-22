@@ -1,6 +1,9 @@
 <%@page import="java.time.LocalDate"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%	String userid = (String) request.getAttribute("userid"); %>
+	<%	String userpw = (String) request.getAttribute("userpw"); %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +24,11 @@
 		<div class="card col-lg-4 mx-auto" style="margin:10px auto;">
 			<div class="card-body px-2 py-2">
 			<form action="/login/join" method="post" id="form" onsubmit="return false">
-				<h1>회원가입 with KAKAO</h1><br>
+				<div style="display:flex;">
+				<div style="flex:0.6;"><h1>회원가입</h1></div>
+				<div style="flex:0.4; text-align:right;" class="text-success"><br><h4>with kakao</h4></div></div><br>
+						<input type="hidden" name="userid" value="<%= userid%>">
+						<input type="hidden" name="userpw" value="<%= userpw%>">
 						<label for="username">이름</label><div id="checkname" style="display:inline;"></div>
 						<input type="text" name="username" id="username" class="form-control" required><br>	
 						<label for="usergender">성별</label>
@@ -72,8 +79,6 @@
 				<option value="4">진주</option>
 				<option value="5">창원</option>
 				</select></div><br>
-				<label for="teamintroduce">팀 사진</label><div class="text-primary" style="display:inline;">&nbsp;&nbsp;&nbsp;선택사항</div>
-				<textarea name="teamintroduce" id="teamintroduce" class="form-control"></textarea><br>
 				<label for="teamintroduce">팀 소개</label><div class="text-primary" style="display:inline;">&nbsp;&nbsp;&nbsp;선택사항</div>
 				<textarea name="teamintroduce" id="teamintroduce" class="form-control"></textarea><br>
 				<button type="submit" class="btn btn-primary btn-block" id="formbutton" >회원가입 완료</button>
@@ -178,14 +183,12 @@ $(document).ready(function() {
 	
 	$("#formbutton").click(function buttonclick(){
 		
-		if(idvali&&pwvali&&repwvali&&namevali&&birthvali&&phonevali&&tnamevali) {
+		if(namevali&&birthvali&&phonevali&&tnamevali) {
 			
 			$('#form').attr('onsubmit','return true');
-			console.log("success");
 	} else {
 		
 		$('#form').attr('onsubmit','return false');
-		console.log("fail");
 	}
 	
 	});

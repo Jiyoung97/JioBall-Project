@@ -16,7 +16,7 @@
 			
 			<div class="text-center" style=" margin: 0 auto; width: 1200px">
 			<div style="float: left; margin: 10px 0;">
-<form method="get" action="/manage/support">
+<form method="get" action="/manager/support">
 <table>
 	<tr>
 	<td>
@@ -57,9 +57,9 @@
 	<td><%= list.get(i).getSupportRownum() %></td>
 	<td><%= list.get(i).getSupportType() %></td>
 	<td><%= list.get(i).getSupportWriter() %></td>
-	<td><a class="text-secondary" href="/manage/support/view?supportno=<%= list.get(i).getSupportNo()%>"><%= list.get(i).getSupportTitle()%></a></td>
+	<td><a class="text-secondary" href="/manager/support/view?supportno=<%= list.get(i).getSupportNo()%>"><%= list.get(i).getSupportTitle()%></a></td>
 	<td><%= (list.get(i).getSupportDate()).substring(0,11)%></td>
-	<td><% if(list.get(i).getSupportState()==0) {%><a class="text-secondary" href="/manage/support/view?supportno=<%= list.get(i).getSupportNo()%>">답변하기</a>
+	<td><% if(list.get(i).getSupportState()==0) {%><a class="text-secondary" href="/manager/support/view?supportno=<%= list.get(i).getSupportNo()%>">답변하기</a>
 	<%} else{ %><%} %></td>
 </tr>
 <%} %>

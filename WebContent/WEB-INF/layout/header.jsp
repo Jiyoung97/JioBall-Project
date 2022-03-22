@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script> 
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +40,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/groundlistboard">
+            <a class="nav-link" href="/ground/groundlist">
               <span class="menu-icon">
                 <i class="mdi mdi-home-variant text-danger"></i>
               </span>
@@ -72,14 +74,14 @@
               <span class="menu-icon">
                 <i class="mdi mdi-comment-processing-outline text-secondary"></i>
               </span>
-              <span class="menu-title">JIO service</span>
+              <span class="menu-title">JIO Service</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="">소개</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">공지사항</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">고객센터</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/notice/list">공지사항</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/support/list">고객센터</a></li>
               </ul>
             </div>
           </li>
@@ -101,11 +103,19 @@
                     <p class="mb-0 d-none d-sm-block navbar-profile-name">&nbsp;<%= session.getAttribute("userName") %>님</p>
                   </div>
               </li>
+              <% if(session.getAttribute("userId").toString().substring(0, 7).equals("[kakao]")) { %>
               <li class="nav-item nav-settings d-none d-lg-block">
-                <a class="nav-link" href="/user/logout">
+                <a class="nav-link" href="/login/logout">
+                  <i class="mdi mdi-logout text-warning"> Logout</i>
+                </a>
+              </li>
+              <% } else { %>
+               <li class="nav-item nav-settings d-none d-lg-block">
+                <a class="nav-link" href="/login/logout">
                   <i class="mdi mdi-logout text-danger"> Logout</i>
                 </a>
               </li>
+              <% } %>
               <% } else {%>
               <li class="nav-item nav-settings d-none d-lg-block">
                 <a class="nav-link" href="login/login">

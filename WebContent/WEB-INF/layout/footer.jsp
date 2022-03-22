@@ -6,13 +6,13 @@
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-              <a href="" target="_blank">공지사항</a></span>
+              <a href="/notice/list" target="_self">공지사항</a></span>
               <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-              <a href="" target="_blank">고객센터</a></span>
+              <a href="/support/list" target="_self">고객센터</a></span>
               <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-              <a href="" target="_blank">서비스 이용약관</a></span>
+              <a href="/jioball/termsofuse" target="_self">서비스 이용약관</a></span>
               <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-              <a href="" target="_blank">개인정보 취급방침</a></span>
+              <a href="/jioball/privacystatement" target="_self">개인정보 취급방침</a></span>
               
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © JIOBALL ALL RIGHTS RESERVED created by :3c</span>
             </div>

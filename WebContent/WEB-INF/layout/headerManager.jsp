@@ -54,7 +54,7 @@
             </a>
           </li>
            <li class="nav-item menu-items">
-           <a class="nav-link" href="">
+           <a class="nav-link" href="/manager/groundlistboard">
               <span class="menu-icon">
                 <i class="mdi mdi-home-variant text-light"></i>
               </span>
@@ -71,8 +71,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="">공지사항</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">문의게시판</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/manager/notice">공지사항</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/manager/support">문의게시판</a></li>
               </ul>
             </div>
           </li>
@@ -82,13 +82,13 @@
       <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <ul class="navbar-nav navbar-nav-right">
-             <% if(session.getAttribute("managerno") != null) { %>
+             <% if(session.getAttribute("managerNo") != null) { %>
              <li class="nav-item nav-settings d-none d-lg-block">
                   <i class="mdi mdi-checkbox-blank-circle text-success"></i>
              </li>
               <li class="nav-item dropdown">
                   <div class="navbar-profile">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">&nbsp;Manager : <%= session.getAttribute("managerno") %></p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">&nbsp;Manager : <%= session.getAttribute("managerNo") %></p>
                   </div>
               </li>
               <li class="nav-item nav-settings d-none d-lg-block">

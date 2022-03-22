@@ -9,7 +9,6 @@ import common.JDBCTemplate;
 import dao.face.MatchingDao;
 import dao.impl.MatchingDaoImpl;
 import dto.Matching;
-import dto.UserTeam;
 import service.face.MatchingService;
 
 public class MatchingServiceImpl implements MatchingService {
@@ -65,15 +64,6 @@ public class MatchingServiceImpl implements MatchingService {
 		System.out.println("[MatchingService] inviteNo : " + inviteNo);
 
 		return inviteNo;
-	}
-
-
-	@Override
-	public UserTeam getUserInfo(UserTeam userTeam) {
-
-		Connection conn = JDBCTemplate.getConnection();
-		
-		return matchingDao.selectUserTeam(conn, userTeam);
 	}
 
 

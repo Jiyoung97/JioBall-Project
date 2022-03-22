@@ -49,6 +49,41 @@ public class LoginDaoImpl implements LoginDao {
 
 
 	}
+	
+	@Override
+	public int selectKakaoUser(Connection conn, UserInfo userParam) {
+
+		String sql = "";
+		sql += "SELECT u.user_no, user_pw, user_name, team_no From userinfo u, teaminfo t";
+		sql += " WHERE (u.user_no = t.user_no) AND (user_id = ?)";
+		
+		int teamNo = 0;
+		
+		try {
+
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, userParam.getUserId());
+			rs = ps.executeQuery();
+
+			if(rs.next()) {
+				
+				userParam.setUserNo(Integer.parseInt(rs.getString("user_no")));
+				userParam.setUserPw(rs.getString("user_pw"));
+				userParam.setUserName(rs.getString("user_name"));
+				teamNo = rs.getInt("team_no");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+		}
+
+		return teamNo;
+
+
+	}
 
 	@Override
 	public String selectUserId(Connection conn, UserInfo userParam) {

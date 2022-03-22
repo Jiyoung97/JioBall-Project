@@ -56,8 +56,8 @@ public class Paging {
 		
 		//기본값 설정
 		if( curPage == 0 )		setCurPage(1); //첫 페이지를 기본 페이지로 설정한다
-		if( listCount == 0 )	setListCount(10); //화면에 보여질 게시글 수를 10개로 설정한다
-		if( pageCount == 0 )	setPageCount(10); //화면에 보여질 페이징 수를 10개로 설정한다
+		if( listCount == 0 )	setListCount(8); //화면에 보여질 게시글 수를 8개로 설정한다
+		if( pageCount == 0 )	setPageCount(5); //화면에 보여질 페이징 수를 5개로 설정한다
 		
 		//----------------------------------------
 		
@@ -82,7 +82,7 @@ public class Paging {
 		// 화면에 보이는 게시글의 시작 번호, 끝 번호 계산
 		startNo = ( curPage-1 ) * listCount + 1;
 		endNo = curPage * listCount;
-	}
+	} 
 	
 	
 	@Override

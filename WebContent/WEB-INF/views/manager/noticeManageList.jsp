@@ -7,7 +7,7 @@
 
 function button_event(e){
 	if(confirm("정말 삭제하시겠습니까?") == true){
-		location.href="/manage/notice/delete?no="+ e;
+		location.href="/manager/notice/delete?no="+ e;
 	}else{
 		return;
 	}
@@ -28,7 +28,7 @@ function button_event(e){
 			<div class="text-center" style=" margin: 0 auto; width: 1200px">
 			
 <div style="float: left; margin: 10px 0;">
-<form method="get" action="/manage/notice">
+<form method="get" action="/manager/notice">
 	<table>
 	<tr>
 	<td>
@@ -43,7 +43,7 @@ function button_event(e){
 </div>
 
 <div style="float: right; margin: 10px 0;">
-<button class="btn btn-sm btn-primary" style="height: 38px;" onclick="location.href='/manage/notice/write'">작성하기</button>
+<button class="btn btn-sm btn-primary" style="height: 38px;" onclick="location.href='/manager/notice/write'">작성하기</button>
 </div>
 
 
@@ -60,7 +60,7 @@ function button_event(e){
 <% for(int i=0; i<list.size(); i++){ %>
 <tr>
 	<td><%= list.get(i).getNoticeRownum()%></td>
-	<td><a class="text-secondary" href="/manage/notice/view?no=<%= list.get(i).getNoticeNo()%>"><%= list.get(i).getNoticeTitle()%></a></td>
+	<td><a class="text-secondary" href="/manager/notice/view?no=<%= list.get(i).getNoticeNo()%>"><%= list.get(i).getNoticeTitle()%></a></td>
 	<td><%= (list.get(i).getNoticeDate()).substring(0,11)%></td>
 	<td><button class ="text-secondary" style=" border: 0; outline: 0; background-color: #191c24;" onclick="button_event(<%= list.get(i).getNoticeNo()%>)">삭제</button></td>
 </tr>

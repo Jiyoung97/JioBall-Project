@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.util.List;
 
 import dto.Matching;
-import dto.UserTeam;
 
 public interface MatchingDao {
 
@@ -43,15 +42,6 @@ public interface MatchingDao {
 	 * @return Matching - 조회된 전체 매칭내역 객체
 	 */
 	public List<Matching> selectAllMatching(Connection conn, int teamNo);
-
-	/**
-	 * 팀번호로 회원정보(이름, 아이디) 조회
-	 * 
-	 * @param conn - DB 연결 객체
-	 * @param userTeam - 조회할 팀 번호
-	 * @return UserTeam - 조회된 회원정보
-	 */
-	public UserTeam selectUserTeam(Connection conn, UserTeam userTeam);
 
 	/**
 	 * 모집번호로 매칭내역 조회
