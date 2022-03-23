@@ -259,9 +259,9 @@ public class SupportDaoImpl implements SupportDao{
 	public int insertSupportFile(Connection connection, SupportFile supportFile) {
 		
 		String sql = "";
-		sql += "INSERT INTO supportfile(support_file_no,support_no, support_file_originname, support_file_storedname";
-		sql	+= ", support_file_path, support_file_size)";
-		sql += " VALUES(supportfile_seq.nextval,?, ?, ?, ?, ?)";
+		sql += "INSERT INTO supportfile(supportfile_no,support_no, supportfile_originname, supportfile_storedname";
+		sql	+= ", supportfile_path)";
+		sql += " VALUES(supportfile_seq.nextval,?, ?, ?, ?)";
 		
 		int res = 0;
 		
@@ -271,7 +271,6 @@ public class SupportDaoImpl implements SupportDao{
 			ps.setString(2, supportFile.getSupportFileOriginName());
 			ps.setString(3, supportFile.getSupportFileStoredName());
 			ps.setString(4, supportFile.getSupportFilePath());
-			ps.setInt(5, supportFile.getSupportFileSize());
 			
 			res = ps.executeUpdate();
 			
@@ -317,7 +316,7 @@ public class SupportDaoImpl implements SupportDao{
 	public SupportFile selectSupportFileView(Connection connection,Support support) {
 		
 		String sql = "";
-		sql += "SELECT support_file_no, support_no, support_file_originname, support_file_storedname, support_file_size";
+		sql += "SELECT supportfile_no, support_no, supportfile_originname, supportfile_storedname";
 		sql += " FROM supportfile";
 		sql += " WHERE support_no = ?";
 		
@@ -333,11 +332,10 @@ public class SupportDaoImpl implements SupportDao{
 			while(rs.next()) {
 				
 				
-				supportFile.setSupportFileNo(rs.getInt("support_file_no"));
+				supportFile.setSupportFileNo(rs.getInt("supportfile_no"));
 				supportFile.setSupportNo(rs.getInt("support_no"));
-				supportFile.setSupportFileOriginName(rs.getString("support_file_originname"));
-				supportFile.setSupportFileStoredName(rs.getString("support_file_storedname"));
-				supportFile.setSupportFileSize(rs.getInt("support_file_size"));
+				supportFile.setSupportFileOriginName(rs.getString("supportfile_originname"));
+				supportFile.setSupportFileStoredName(rs.getString("supportfile_storedname"));
 				
 			}
 			

@@ -18,5 +18,17 @@ public interface MatchService {
 
 	public List<GroundInfo> getGroundNameList();
 	
+	public Match getMatchView(Match matchNo);
+	
+	public GroundInfo getGroundInfo(GroundInfo groundNo);
+	
+	public Match getMatchNo(HttpServletRequest req);
+	
+	public GroundInfo getGroundNo(HttpServletRequest req);
+	
+	public void matchJoin(Match matchNo);
+	
+	public Match getJoinInsertInfo(HttpServletRequest req);
+	
 
 }

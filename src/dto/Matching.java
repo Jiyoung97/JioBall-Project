@@ -2,7 +2,7 @@ package dto;
 
 import java.util.Date;
 
-public class Matching { //V_INVITE (매칭모집+매칭참가 테이블)
+public class Matching { //V_MATCHING (매칭모집+매칭참가 테이블)
 	private int inviteNo;			//모집번호
 	private String inviteDate;		//모집일자
 	private Date playDate;			//경기일자

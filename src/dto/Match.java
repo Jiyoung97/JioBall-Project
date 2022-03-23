@@ -7,14 +7,23 @@ public class Match {
 	private String playDate;
 	private String inviteTitle;
 	private String inviteComment;
-	private String matchType;
-	private int playPerson;
 	private String playLocal;
+	private int matchingProgressType;
+	private int playPerson;
+	private int playType;
 	private int teamNo;
 	private int groundNo;
-	private int joinNo;
 	private int matchRnum;
+	private String teamName;
 	
+	
+	
+	public String getTeamName() {
+		return teamName;
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
 	public int getInviteNo() {
 		return inviteNo;
 	}
@@ -45,11 +54,17 @@ public class Match {
 	public void setInviteComment(String inviteComment) {
 		this.inviteComment = inviteComment;
 	}
-	public String getMatchType() {
-		return matchType;
+	public String getPlayLocal() {
+		return playLocal;
 	}
-	public void setMatchType(String matchType) {
-		this.matchType = matchType;
+	public void setPlayLocal(String playLocal) {
+		this.playLocal = playLocal;
+	}
+	public int getMatchingProgressType() {
+		return matchingProgressType;
+	}
+	public void setMatchingProgressType(int matchingProgressType) {
+		this.matchingProgressType = matchingProgressType;
 	}
 	public int getPlayPerson() {
 		return playPerson;
@@ -57,11 +72,11 @@ public class Match {
 	public void setPlayPerson(int playPerson) {
 		this.playPerson = playPerson;
 	}
-	public String getPlayLocal() {
-		return playLocal;
+	public int getPlayType() {
+		return playType;
 	}
-	public void setPlayLocal(String playLocal) {
-		this.playLocal = playLocal;
+	public void setPlayType(int playType) {
+		this.playType = playType;
 	}
 	public int getTeamNo() {
 		return teamNo;
@@ -75,14 +90,6 @@ public class Match {
 	public void setGroundNo(int groundNo) {
 		this.groundNo = groundNo;
 	}
-	public int getJoinNo() {
-		return joinNo;
-	}
-	public void setJoinNo(int joinNo) {
-		this.joinNo = joinNo;
-	}
-	
-	
 	public int getMatchRnum() {
 		return matchRnum;
 	}
@@ -92,10 +99,12 @@ public class Match {
 	@Override
 	public String toString() {
 		return "Match [inviteNo=" + inviteNo + ", inviteDate=" + inviteDate + ", playDate=" + playDate
-				+ ", inviteTitle=" + inviteTitle + ", inviteComment=" + inviteComment + ", matchType=" + matchType
-				+ ", playPerson=" + playPerson + ", playLocal=" + playLocal + ", teamNo=" + teamNo + ", groundNo="
-				+ groundNo + ", joinNo=" + joinNo + "]";
+				+ ", inviteTitle=" + inviteTitle + ", inviteComment=" + inviteComment + ", playLocal=" + playLocal
+				+ ", matchingProgressType=" + matchingProgressType + ", playPerson=" + playPerson + ", playType="
+				+ playType + ", teamNo=" + teamNo + ", groundNo=" + groundNo + ", matchRnum=" + matchRnum
+				+ ", teamName=" + teamName + "]";
 	}
+	
 	
 	
 

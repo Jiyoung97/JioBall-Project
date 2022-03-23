@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dto.TeamInfo;
 import service.face.MyTeamService;
@@ -23,19 +24,31 @@ public class MyTeamEditController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("/myteam/edit [GET]");
 	
-		//내 팀 정보 저장할 객체 생성
-		TeamInfo myTeam = new TeamInfo();
-		
-		// 세션의 팀번호로 내 팀 프로필 가져오기
-		myTeam.setTeamNo((Integer)req.getSession().getAttribute("teamNo"));
-		myTeamService.getMyTeamInfo( myTeam.getTeamNo()  );
+		HttpSession session = req.getSession();
 
-		
-		//조회결과 MODEL값 전달 - req.setAttribute
-		req.setAttribute("myTeam", myTeam);
-				
-		// /myteam/edit 로 뷰 지정 후 포워드
-		req.getRequestDispatcher("/WEB-INF/views/myteam/myteam_edit.jsp").forward(req, resp);
+		if(session.getAttribute("teamNo") == null) {
+
+			System.out.println("TeamInfo [teamNo=" + session.getAttribute("teamNo") + "]");
+			System.out.println("Connection Unavailable [Redirect]");
+			resp.sendRedirect("/login/login");
+
+		} else {
+			
+			//내 팀 정보 저장할 객체 생성
+			TeamInfo myTeam = new TeamInfo();
+			
+			// 세션의 팀번호로 내 팀 프로필 가져오기
+			myTeam.setTeamNo((Integer)req.getSession().getAttribute("teamNo"));
+			myTeamService.getMyTeamInfo( myTeam.getTeamNo()  );
+			
+			
+			//조회결과 MODEL값 전달 - req.setAttribute
+			req.setAttribute("myTeam", myTeam);
+			
+			// /myteam/edit 로 뷰 지정 후 포워드
+			req.getRequestDispatcher("/WEB-INF/views/myteam/myteam_edit.jsp").forward(req, resp);
+			
+		}
 			
 	}
 	

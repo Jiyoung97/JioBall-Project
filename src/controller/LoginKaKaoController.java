@@ -47,7 +47,7 @@ public class LoginKaKaoController extends HttpServlet {
 			session.setAttribute("userName", userParam.getUserName());
 			session.setAttribute("teamNo", teamNo);
 			
-			req.getRequestDispatcher("/WEB-INF/views/login/home.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/views/main.jsp").forward(req, resp);
 			
 		} else {
 			

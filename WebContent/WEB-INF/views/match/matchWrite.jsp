@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
   <% List<GroundInfo> list = (List)request.getAttribute("list");%>
 <head>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -50,12 +50,27 @@ $(document).ready(function() {
 	</tr>
 	<tr>
 		<th>경기일자</th>
-		<td><input type="text" name="playDate" class="form-control text-secondary" placeholder="ex)03/24"></td>
+		<td><input type="text" name="playDate" class="form-control text-secondary" placeholder="ex)22/03/24"></td>
 	</tr>
 	<tr>
 		<th>경기인원수</th>
-		<td><input type="text" name="person" class="form-control text-secondary" placeholder="숫자입력"></td>
+		<td><select = name="person" class="form-control text-secondary">
+			<option value="1">5:5</option>
+			<option value="2">6:6</option>
+			<option value="3">11:11</option>
+			</select>
+		</td>
 	</tr>
+	
+	<tr>
+		<th>경기종목</th>
+		<td><select = name="playType" class="form-control text-secondary">
+			<option value="1">풋살</option>
+			<option value="2">축구</option>
+			</select>
+		</td>
+	</tr>
+	
 	
 	<tr>
 		<th>구장</th>

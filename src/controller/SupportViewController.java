@@ -22,7 +22,6 @@ public class SupportViewController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-
 			Support support = supportService.getSupportNo(req);
 			
 			Support supportView = supportService.getSupportView(support);
@@ -33,7 +32,6 @@ public class SupportViewController extends HttpServlet {
 			
 			req.setAttribute("supportFile", supportFile);
 			req.getRequestDispatcher("/WEB-INF/views/service/supportView.jsp").forward(req, resp);
-			
 		
 	}
 

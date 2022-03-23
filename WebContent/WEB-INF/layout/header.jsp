@@ -32,7 +32,7 @@
             <span class="nav-link">매치</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="/main">
               <span class="menu-icon">
                 <i class="mdi mdi-dribbble text-primary"></i>
               </span>
@@ -56,7 +56,7 @@
             </a>
           </li>
            <li class="nav-item menu-items">
-           <a class="nav-link" href="">
+           <a class="nav-link" href="/mypage/main">
               <span class="menu-icon">
                 <i class="mdi mdi-account-circle text-info"></i>
               </span>
@@ -67,7 +67,7 @@
             <span class="nav-link"></span>
           </li>
           <li class="nav-item nav-category">
-            <span class="nav-link">고객지원</span>
+            <span class="nav-link">고객센터</span>
           </li>
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -79,9 +79,9 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="">소개</a></li>
+<!--                 <li class="nav-item"> <a class="nav-link" href="">소개</a></li> -->
                 <li class="nav-item"> <a class="nav-link" href="/notice/list">공지사항</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/support/list">고객센터</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/support/list">문의 게시판</a></li>
               </ul>
             </div>
           </li>

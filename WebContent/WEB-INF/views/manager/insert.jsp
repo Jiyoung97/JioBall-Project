@@ -89,7 +89,7 @@
 							<tr>
 								<th>오픈 시간</th>
 								<td>
-									<select class="form-control form-select" name="groundOpenTime">
+									<select class="form-control form-select-box" name="groundOpenTime">
 										<option value="00:00:00">00:00</option>
 										<option value="01:00:00">01:00</option>
 										<option value="02:00:00">02:00</option>
@@ -121,7 +121,7 @@
 							<tr>
 								<th>마감 시간</th>
 								<td>
-									<select class="form-control form-select" name="groundCloseTime">
+									<select class="form-control form-select-box" name="groundCloseTime">
 										<option value="00:00:00">00:00</option>
 										<option value="01:00:00">01:00</option>
 										<option value="02:00:00">02:00</option>

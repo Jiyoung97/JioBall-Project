@@ -14,7 +14,7 @@ import service.face.MatchService;
 import service.impl.MatchServiceImpl;
 import util.Paging;
 
-@WebServlet("/match/list")
+@WebServlet("/main")
 public class MatchListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

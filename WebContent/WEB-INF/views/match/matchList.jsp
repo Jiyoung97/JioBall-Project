@@ -24,7 +24,7 @@
 <div style="float: left; margin: 10px 0;">
 
 
-<form method="get" action="/match/list">
+<form method="get" action="/main">
 	<table>
 	<tr>
 	<td>
@@ -55,21 +55,32 @@
 			</tr>
 
 
-
 			<% for (int i = 0; i < list.size(); i++) { %>
+			<%	if( !(list.get(i).getMatchingProgressType() == 3)) {%>
 			<tr>
 			<td><%=list.get(i).getMatchRnum()%></td>
-			<td><%=list.get(i).getInviteTitle()%></td>
-			<td><%=list.get(i).getPlayDate()%></td>
+			<td><a href="/match/view?matchNo=<%=list.get(i).getInviteNo()%>&groundNo=<%=list.get(i).getGroundNo()%>">
+			<%=list.get(i).getInviteTitle()%></a></td>
+			<td><%=list.get(i).getPlayDate().substring(0,11)%></td>
 			<td><%=list.get(i).getPlayLocal()%></td>
-			<td><%=list.get(i).getPlayPerson()%>명</td>
-			<td><%if(list.get(i).getJoinNo() != 0 ) {%>
-				모집완료<%}else{ %>모집중<%} %>
-							
-                     		</td>
-						</tr>
-						<%} %>
-					</table>
+			<td><%	if( list.get(i).getPlayPerson() == 1){ %>
+				5:5
+				<%	} else if( list.get(i).getPlayPerson() == 2) { %>
+				6:6
+				<%	} else if( list.get(i).getPlayPerson() == 3) { %>
+				11:11
+				<%	} %>
+			</td>
+			<td><% if(list.get(i).getMatchingProgressType() == 1) { %>
+				모집중
+				<%	} else if( list.get(i).getMatchingProgressType() ==2) { %>
+				모집완료
+				<%	} %>
+			</td>
+			</tr>
+			<%} %>
+			<%} %>
+			</table>
 </div>
 <br>
 <%@ include file="../../layout/matchPaging.jsp"%>

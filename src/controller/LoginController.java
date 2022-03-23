@@ -48,7 +48,8 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("userName", userParam.getUserName());
 			session.setAttribute("teamNo", teamNo);
 			
-			req.getRequestDispatcher("/WEB-INF/views/login/home.jsp").forward(req, resp);
+			resp.sendRedirect("/main");
+//			req.getRequestDispatcher("/WEB-INF/views/match/matchList.jsp").forward(req, resp);
 			
 		} else {
 			

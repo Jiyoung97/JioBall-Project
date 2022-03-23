@@ -19,8 +19,8 @@
 		<div class="card">
 			<div class="card-body">
 				<form action="/manager/usersearch" method="get" class="forms-sample form-userlist-top">
-					<input type="text" class="form-control form-input input-userlist-search" name="teamname" placeholder="팀 이름을 입력해주세요">
-					<button class="btn btn-sm btn-primary btn-userlist-search">검색</button>
+					<input type="text" class="form-control form-input input-userlist-search form-input-search" name="teamname" placeholder="팀 이름을 입력해주세요">
+					<button class="btn btn-sm btn-primary btn-userlist-search btn-ground-search">검색</button>
 				</form>
 				</div>
 				<table class="table text-secondary">
@@ -34,7 +34,6 @@
 						<th>생년월일</th>
 						<th>연락처</th>
 						<th>매칭</th>
-						<th>결제</th>
 						<th>삭제</th>
 					</tr>
 					</thead>
@@ -47,7 +46,6 @@
 						<td><% if(userList.get(i).getUserGender()==1) {%>남<%} else {%>여<%} %></td>
 						<td><%=userList.get(i).getUserBirth().substring(0, 10)%></td>
 						<td><%=userList.get(i).getUserPhone()%></td>
-						<td><a href="?=<%=teamList.get(i).getTeamNo()%>">내역</a></td>
 						<td><a href="?=<%=teamList.get(i).getTeamNo()%>">내역</a></td>
 						<td><a href="/manager/userdelete?teamno=<%=teamList.get(i).getTeamNo()%>">삭제</a></td>
 					</tr>

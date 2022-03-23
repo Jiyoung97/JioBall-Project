@@ -23,11 +23,11 @@
 				<h1 class="card-title text-left mb-3">관리자 로그인</h1>
 				<br>
 				<form action="/manager/login" method="post">
-					<div class="form-group">
-						<label>아이디 *</label> <input type="text" class="form-control p_input" name="managerid" required>
+					<div class="form-group text-secondary">
+						<label>아이디 *</label> <input type="text" class="form-control p_input text-secondary" name="managerid" required>
 					</div>
-					<div class="form-group">
-						<label>패스워드 *</label> <input type="password" class="form-control p_input" name="managerpw" required>
+					<div class="form-group text-secondary">
+						<label>패스워드 *</label> <input type="password" class="form-control p_input text-secondary" name="managerpw" required>
 					</div><br>
 					<button type="submit" class="btn btn-primary btn-block enter-btn">로그인</button>
 				</form>

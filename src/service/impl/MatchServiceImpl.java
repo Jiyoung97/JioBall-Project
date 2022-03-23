@@ -64,8 +64,8 @@ public class MatchServiceImpl implements MatchService{
 		match.setPlayPerson(Integer.parseInt(req.getParameter("person")));
 		match.setPlayLocal(req.getParameter("local"));
 		match.setTeamNo((Integer)req.getSession().getAttribute("teamNo"));
-		System.out.println(req.getSession().getAttribute("teamNo"));
 		match.setGroundNo(Integer.parseInt(req.getParameter("groundNo")));
+		match.setPlayType(Integer.parseInt(req.getParameter("playType")));
 		
 		int res = matchDao.insertMatch(conn,match);
 		
@@ -84,4 +84,70 @@ public class MatchServiceImpl implements MatchService{
 		
 		return list;
 	}
+	
+	@Override
+	public GroundInfo getGroundInfo(GroundInfo groundNo) {
+		
+		GroundInfo groundInfo = matchDao.selectGroundInfo(JDBCTemplate.getConnection(), groundNo);
+		return groundInfo;
+	}
+	
+	@Override
+	public Match getMatchView(Match matchNo) {
+		Match match = matchDao.selectMatchView(JDBCTemplate.getConnection(),matchNo);
+		Match teamName =  matchDao.selectTeamName(JDBCTemplate.getConnection(),match);
+		match.setTeamName(teamName.getTeamName());
+		return match;
+	}
+	
+	@Override
+	public GroundInfo getGroundNo(HttpServletRequest req) {
+		GroundInfo groundNo = new GroundInfo();
+		groundNo.setGroundNo(Integer.parseInt(req.getParameter("groundNo")));		
+		return groundNo;
+	}
+	
+	@Override
+	public Match getMatchNo(HttpServletRequest req) {
+		
+		Match matchNo = new Match();
+		
+		matchNo.setInviteNo(Integer.parseInt(req.getParameter("matchNo")));
+		
+		return matchNo;
+	}
+	
+	@Override
+	public void matchJoin(Match matchNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		System.out.println(matchNo);
+		int res = matchDao.updateMatch(conn,matchNo);
+		
+		if(res>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		int joinres = matchDao.insertJoin(conn,matchNo);
+		
+		if(joinres>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+	}
+	
+	@Override
+	public Match getJoinInsertInfo(HttpServletRequest req) {
+		Match matchNo = new Match();
+		
+		matchNo.setInviteNo(Integer.parseInt(req.getParameter("matchNo")));
+		matchNo.setTeamNo((Integer)req.getSession().getAttribute("teamNo"));
+		
+		return matchNo;
+	
+	}
+	
 }

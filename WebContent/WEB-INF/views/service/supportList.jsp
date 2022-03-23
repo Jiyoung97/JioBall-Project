@@ -40,7 +40,7 @@
 </div>
 <%if(session.getAttribute("userId") != null){ %>
 <div style="float: right; margin: 10px 0;">
-<button class="btn btn-sm btn-primary" style="height: 38px;" onclick="location.href='/support/write'">작성하기</button>
+<button class="btn btn-sm btn-primary" style="height: 38px;" onclick="location.href='/support/write'">문의하기</button>
 </div>
 <%} %>
 

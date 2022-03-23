@@ -25,22 +25,21 @@ public class SupportListController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //		System.out.println("/support/list");
 	
-		
-		//검색어 받아오기
-		String search = req.getParameter("search");
-		
-		//유형받아오기
-		String type = req.getParameter("type");
-		
-		Paging paging = supportService.getSupportPaging(req, search, type);
-		
-		List<Support> list = supportService.getSupportlist(paging, search, type);
-		
-		req.setAttribute("supportList", list);
-		req.setAttribute("supportPaging", paging);
-		
-		req.getRequestDispatcher("/WEB-INF/views/service/supportList.jsp").forward(req, resp);
-		
+			//검색어 받아오기
+			String search = req.getParameter("search");
+			
+			//유형받아오기
+			String type = req.getParameter("type");
+			
+			Paging paging = supportService.getSupportPaging(req, search, type);
+			
+			List<Support> list = supportService.getSupportlist(paging, search, type);
+			
+			req.setAttribute("supportList", list);
+			req.setAttribute("supportPaging", paging);
+			
+			req.getRequestDispatcher("/WEB-INF/views/service/supportList.jsp").forward(req, resp);
+
 	}
 	
 	

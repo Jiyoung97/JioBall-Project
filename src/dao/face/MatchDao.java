@@ -9,14 +9,24 @@ import util.Paging;
 
 public interface MatchDao {
 
-	List<Match> selectAll(Connection connection, Paging paging, String search);
+	public List<Match> selectAll(Connection connection, Paging paging, String search);
 
-	int selectCntAll(Connection connection, String search);
+	public int selectCntAll(Connection connection, String search);
 
-	int selectCntAll(Connection connection);
+	public int selectCntAll(Connection connection);
 
-	int insertMatch(Connection conn, Match match);
+	public int insertMatch(Connection conn, Match match);
 
-	List<GroundInfo> selectGroundList(Connection connection);
+	public List<GroundInfo> selectGroundList(Connection connection);
+
+	public GroundInfo selectGroundInfo(Connection conn, GroundInfo groundNo);
+
+	public Match selectMatchView(Connection connection, Match matchNo);
+
+	public Match selectTeamName(Connection connection, Match match);
+
+	public int updateMatch(Connection conn, Match matchNo);
+
+	public int insertJoin(Connection conn, Match matchNo);
 
 }

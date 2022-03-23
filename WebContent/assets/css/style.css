@@ -21151,6 +21151,11 @@ input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none !import
 /* input[type=number] 증감 버튼 X Firefox */
 input[type=number] {-moz-appearance:textfield !important;}
 
+/* input, button 글자 색상 통일 */
+input, input:active, input:focus, input:hover, input:visited
+button {color: #e4eaec;}
+
+
 /* Ground Insert CSS → manage/insert.jsp */
 .form-control:readonly {background-color:#2A3038;}
 
@@ -21175,7 +21180,7 @@ input[type=number] {-moz-appearance:textfield !important;}
 .form-check-label {margin-right:10px; line-height:normal; vertical-align:bottom;}
 .form-check-input {position:relative; margin:0px;}
 
-.form-select {width:350px;}
+.form-select-box {width:350px;}
 
 .textarea-input {width:350px;}
 
@@ -21210,10 +21215,10 @@ input[type=number] {-moz-appearance:textfield !important;}
 
 
 /* Paging CSS → manage&user/paging.jsp */
-.pagination a {width:35px; height:35px; display:inline-block; padding:5px; border:1px solid rgba(199, 204, 207, 0.7);}
-a, a:hover {color: #e4eaec; text-decoration:none;}
+/* .pagination a {width:35px; height:35px; display:inline-block; padding:5px; border:1px solid rgba(199, 204, 207, 0.7);} */
+/* a, a:hover {color: #e4eaec; text-decoration:none;} */
 
-.template-demo {text-align:center;}
+/* .template-demo {text-align:center;} */
 
 /* Ground Update CSS → manage/update.jsp */
 .btn-ground-update-submit {width:456px; height:calc(2.25rem + 2px); display:block; margin-bottom:5px;}

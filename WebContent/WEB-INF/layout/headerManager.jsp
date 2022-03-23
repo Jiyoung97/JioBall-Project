@@ -45,14 +45,6 @@
               <span class="menu-title text-light">매칭 관리</span>
             </a>
           </li>
-          <li class="nav-item menu-items">
-           <a class="nav-link" href="">
-              <span class="menu-icon">
-                <i class="mdi mdi-cart-outline text-light"></i>
-              </span>
-              <span class="menu-title text-light">결제 관리</span>
-            </a>
-          </li>
            <li class="nav-item menu-items">
            <a class="nav-link" href="/manager/groundlistboard">
               <span class="menu-icon">

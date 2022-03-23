@@ -25,8 +25,8 @@ public class MatchDaompl implements MatchDao {
 		sql += "SELECT * FROM(";
 		sql += "	SELECT rownum rnum, N.* FROM(";
 		sql += " 		SELECT";
-		sql += " 			invite_no, invite_title, play_date, join_no, play_local, play_person";
-		sql += "		FROM matchinvite";
+		sql += " 			invite_no, play_date,invite_title, matchingprogress_type, playlocal_no, play_person,ground_no";
+		sql += "		FROM invite";
 		sql += "		WHERE invite_title LIKE '%' || ? || '%'";
 		sql += "		ORDER BY invite_no DESC";
 		sql += "	)N";
@@ -50,17 +50,18 @@ public class MatchDaompl implements MatchDao {
 				match.setInviteNo(rs.getInt("invite_no"));
 				match.setInviteTitle(rs.getString("invite_title"));
 				match.setPlayDate(rs.getString("play_date"));
-				match.setJoinNo(rs.getInt("join_no"));
+				match.setMatchingProgressType(rs.getInt("matchingprogress_type"));
 				match.setPlayPerson(rs.getInt("play_person"));
-				if(1==rs.getInt("play_local")) {
+				match.setGroundNo(rs.getInt("ground_no"));
+				if(1==rs.getInt("playlocal_no")) {
 					match.setPlayLocal("김해");
-				}else if(2==rs.getInt("play_local")) {
+				}else if(2==rs.getInt("playlocal_no")) {
 					match.setPlayLocal("부산");
-				}else if(3==rs.getInt("play_local")) {
+				}else if(3==rs.getInt("playlocal_no")) {
 					match.setPlayLocal("양산");
-				}else if(4==rs.getInt("play_local")) {
+				}else if(4==rs.getInt("playlocal_no")) {
 					match.setPlayLocal("진주");
-				}else if(5==rs.getInt("play_local")) {
+				}else if(5==rs.getInt("playlocal_no")) {
 					match.setPlayLocal("창원");
 				}
 				
@@ -83,7 +84,7 @@ public class MatchDaompl implements MatchDao {
 	public int selectCntAll(Connection connection) {
 		
 		String sql = "";
-		sql += "SELECT count(*) cnt FROM matchinvite";
+		sql += "SELECT count(*) cnt FROM invite";
 				
 		//총 게시글 수
 		int count = 0 ;
@@ -111,7 +112,7 @@ public class MatchDaompl implements MatchDao {
 	public int selectCntAll(Connection connection, String search) {
 		
 		String sql = "";
-		sql += "SELECT count(*) cnt FROM matchinvite";
+		sql += "SELECT count(*) cnt FROM invite";
 		sql += " WHERE invite_title LIKE '%' || ? || '%'";
 				
 		//총 게시글 수
@@ -141,9 +142,9 @@ public class MatchDaompl implements MatchDao {
 	public int insertMatch(Connection conn, Match match) {
 		
 		String sql = "";
-		sql += "INSERT INTO matchinvite(invite_no, invite_title, invite_comment, play_date, ";
-		sql += " play_person, play_local, team_no, ground_no)";
-		sql += " VALUES(matchinvite_seq.nextval,?, ?, ?, ?, ?, ?, ?)";
+		sql += "INSERT INTO invite(invite_no,invite_date, invite_title, invite_comment, play_date, ";
+		sql += " play_person, playlocal_no, team_no, ground_no, playtype_no, matchingprogress_type)";
+		sql += " VALUES(invite_seq.nextval,sysdate,?, ?, ?, ?, ?, ?, ?, ?, 1)";
 		 
 		int res = 0;
 		
@@ -166,6 +167,7 @@ public class MatchDaompl implements MatchDao {
 			}
 			ps.setInt(6, match.getTeamNo());
 			ps.setInt(7, match.getGroundNo());
+			ps.setInt(8, match.getPlayType());
 			
 			res = ps.executeUpdate();
 			
@@ -214,4 +216,189 @@ public class MatchDaompl implements MatchDao {
 		
 		return list;
 	}
+	
+	@Override
+	public GroundInfo selectGroundInfo(Connection conn, GroundInfo groundNo) {
+		String sql = "";
+		sql += "SELECT *";
+		sql += "  FROM GROUNDINFO";
+		sql += " WHERE GROUND_NO = ?";
+		
+		GroundInfo groundInfo = null;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, groundNo.getGroundNo());
+			
+			rs = ps.executeQuery();
+
+			while(rs.next()) {
+				groundInfo = new GroundInfo();
+				
+				groundInfo.setGroundNo(rs.getInt("GROUND_NO"));
+				groundInfo.setGroundName(rs.getString("GROUND_NAME"));
+				groundInfo.setGroundLocation(rs.getString("GROUND_LOCATION"));
+				groundInfo.setGroundSize(rs.getString("GROUND_SIZE"));
+				groundInfo.setGroundOpenTime(rs.getTimestamp("GROUND_OPENTIME"));
+				groundInfo.setGroundCloseTime(rs.getTimestamp("GROUND_CLOSETIME"));
+				groundInfo.setGroundShower(rs.getInt("GROUND_SHOWER"));
+				groundInfo.setGroundParking(rs.getInt("GROUND_PARKING"));
+				groundInfo.setGroundShoes(rs.getInt("GROUND_SHOES"));
+				groundInfo.setGroundBib(rs.getInt("GROUND_BIB"));
+				groundInfo.setGroundNotice(rs.getString("GROUND_NOTICE"));
+				groundInfo.setGroundFee(rs.getInt("GROUND_FEE"));
+				groundInfo.setPlayTypeNo(rs.getInt("PLAYTYPE_NO"));
+				groundInfo.setPlayLocalNo(rs.getInt("PLAYLOCAL_NO"));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+		}
+		return groundInfo;
+	}
+	
+	@Override
+	public Match selectMatchView(Connection connection, Match matchNo) {
+		
+		String sql = "";
+		sql += "SELECT *";
+		sql += "  FROM invite";
+		sql += " WHERE invite_no = ?";
+		
+		Match match = new Match();
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			
+			ps.setInt(1, matchNo.getInviteNo());
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				match.setInviteNo(rs.getInt("invite_no"));
+				match.setPlayDate(rs.getString("play_date"));
+				match.setInviteTitle(rs.getString("invite_title"));
+				match.setInviteComment(rs.getString("invite_comment"));
+				if(rs.getInt("playlocal_no")==1) {
+				match.setPlayLocal("김해");
+				}else if(rs.getInt("playlocal_no")==2) {
+					match.setPlayLocal("부산");
+				}else if(rs.getInt("playlocal_no")==3) {
+					match.setPlayLocal("양산");
+				}else if(rs.getInt("playlocal_no")==4) {
+					match.setPlayLocal("진주");
+				}else if(rs.getInt("playlocal_no")==5) {
+					match.setPlayLocal("창원");
+				}
+				match.setMatchingProgressType(rs.getInt("matchingprogress_type"));
+				match.setPlayPerson(rs.getInt("play_person"));
+				match.setPlayType(rs.getInt("playtype_no"));
+				match.setTeamNo(rs.getInt("team_no"));
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+		}
+		
+		
+		
+		return match;
+	}
+	
+	@Override
+	public Match selectTeamName(Connection connection, Match match) {
+		
+		String sql = "";
+		sql += "SELECT team_name FROM teaminfo";
+		sql += " WHERE team_no = ?";
+		Match teamName = new Match();
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, match.getTeamNo());
+			
+			rs = ps.executeQuery();
+			
+			
+			
+			while(rs.next()) {
+				teamName.setTeamName(rs.getString("team_name")); 
+			}
+			
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+		}
+		
+		return teamName;
+	}
+	
+	
+	@Override
+	public int insertJoin(Connection conn, Match matchNo) {
+		
+		String sql = "";
+		sql += "INSERT INTO join(join_no,join_date, invite_no, team_no)";
+		sql += " VALUES (join_seq.nextval, sysdate, ?, ?)";
+		
+		int res = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, matchNo.getInviteNo());
+			ps.setInt(2, matchNo.getTeamNo());
+			
+			res = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(ps);
+		}
+		
+		
+		return res;
+	}
+	
+	@Override
+	public int updateMatch(Connection conn, Match matchNo) {
+		
+		String sql = "";
+		sql += "UPDATE invite SET matchingprogress_type = 2";
+		sql += " WHERE invite_no = ?";
+		
+		int res = 0;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, matchNo.getInviteNo());
+			res = ps.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(ps);
+		}
+		
+		
+		
+		return res;
+	}
+	
+	
+	
 }

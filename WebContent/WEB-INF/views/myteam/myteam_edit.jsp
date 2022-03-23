@@ -65,13 +65,13 @@ $(document).ready(function() {
 								<th>선호 종목</th>
 								<td>
 									<div class="form-check text-secondary">
-										<label for="futsal" class="form-check-label form-radio-label text-secondary">
-										<input type="radio" id="futsal" class="form-radio-input text-secondary" name="playTypeNo" value="1" checked>풋살</label>
+										<label for="football" class="form-check-label form-radio-label text-secondary">
+										<input type="radio" id="football" class="form-radio-input text-secondary" name="playTypeNo" value="1" checked>풋볼</label>
 									</div>
 									
 									<div class="form-check text-secondary">
-										<label for="football" class="form-check-label form-radio-label text-secondary">
-										<input type="radio" id="football" class="form-radio-input form-check-primary text-secondary" name="playTypeNo" value="2">축구</label>
+										<label for="soccer" class="form-check-label form-radio-label text-secondary">
+										<input type="radio" id="soccer" class="form-radio-input form-check-primary text-secondary" name="playTypeNo" value="2">축구</label>
 									</div>	
 								</td>
 							</tr>
